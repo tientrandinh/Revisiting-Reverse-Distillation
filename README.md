@@ -3,7 +3,8 @@
 
 Code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
 
-[[Paper]](https://openaccess.thecvf.com/content/CVPR2023/papers/Tien_Revisiting_Reverse_Distillation_for_Anomaly_Detection_CVPR_2023_paper.pdf)
+[![Paper](https://img.shields.io/badge/Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2023/papers/Tien_Revisiting_Reverse_Distillation_for_Anomaly_Detection_CVPR_2023_paper.pdf)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tientrandinh/Revisiting-Reverse-Distillation/blob/main/main.ipynb)
 
 <div align="center">
 
@@ -21,25 +22,43 @@ The paper proposes RD++ approach for anomaly detection by enriching feature comp
   <img width="100%" alt="AFA flowchart" src="./docs/inference_time.jpeg">
 </div>
 
-## Libraries
-###   geomloss 
-###   numba
 
+## Table of Contents
+
+- [Libraries](#libraries)
+- [Data Preparations](#data-preparations)
+- [Train](#train)
+- [Evaluation](#evaluation)
+- [Quick Experiments](#quick-experiments)
+- [Citation](#citation)
+- [Acknowledgement](#acknowledgement)
+
+## Libraries 
+```       
+- geomloss
+- numba
+```
 ## Data Preparations
 Download MVTEC dataset from [[Link]](https://www.mvtec.com/company/research/datasets/mvtec-ad)
 
-### Train
-To start both training and evaluating results, for example: two classes: carpet, leather, please run:
+## Train
+To training, testing the method RD++ on 15 classes of MVTEC, for example with two classes: carpet, leather, please run:
 ```
-python train_test.py --save_folder RD++  --classes carpet leather
+python main.py --save_folder RD++  \
+               --classes carpet leather
 
 ```
-Besides, the notebook file is provided for conveniently training, testing on google colab
-### Evalution
+## Evalution
 If you just need to inference with checkpoints, please run
 ```
-python inference_checkpoints.py --checkpoint_folder RD++  --classes carpet leather
+python inference.py --checkpoint_folder RD++  \
+                    --classes carpet leather
 ```
+The pretrained weights can be found here  [[Google Drive]](https://drive.google.com/drive/folders/1ifrkexB0N1O87CpYPS-Wg2vgAiwXFf2Z)
+
+## Quick Experiments
+
+Try the Colab here using [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tientrandinh/Revisiting-Reverse-Distillation/blob/main/main.ipynb)
 
 ## Citation
 Please cite our paper if you find it's helpful in your work.
