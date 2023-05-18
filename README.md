@@ -14,7 +14,7 @@ Code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
 
 <!-- ## Abastract -->
 
-The paper proposes the **RD++** approach for anomaly detection by enriching feature compactness and suppressing anomalous signals through a multi-task learning design. For the feature compactness task, RD++ introduces the self-supervised optimal transport method. For the anomalous signal suppression task, RD++ simulates pseudo-abnormal samples with simplex noise and minimizes the reconstruction loss. RD++ achieves a new state-of-the-art benchmark on the challenging MVTec dataset for both anomaly detection and localization. **More importantly**, when compared to recent SOTA methods, RD++ runs **6.x times faster than PatchCore** and **2.x times faster than CFA**, while introducing a negligible latency compared to RD.
+The paper proposes the **RD++** approach for anomaly detection by enriching feature compactness and suppressing anomalous signals through a multi-task learning design. For the feature compactness task, RD++ introduces the self-supervised optimal transport method. For the anomalous signal suppression task, RD++ simulates pseudo-abnormal samples with simplex noise and minimizes the reconstruction loss. RD++ achieves a **new state-of-the-art benchmark** on the challenging MVTec dataset for both anomaly detection and localization. **More importantly**, when compared to recent SOTA methods, RD++ runs **6.x times faster than PatchCore** and **2.x times faster than CFA**, while introducing a negligible latency compared to RD.
 
 <div align="center">
 
@@ -42,14 +42,14 @@ The paper proposes the **RD++** approach for anomaly detection by enriching feat
 Download MVTEC dataset from [[Link]](https://www.mvtec.com/company/research/datasets/mvtec-ad)
 
 ## Train
-To training, testing the method RD++ on 15 classes of MVTEC, for example with two classes: carpet, leather, please run:
+To train and test the RD++ method on 15 classes of MVTEC, for example, with two classes: carpet and leather, please run:
 ```
 python main.py --save_folder RD++  \
                --classes carpet leather
 
 ```
-## Evalution
-If you just need to inference with checkpoints, please run
+## Evaluation
+If you only need to perform inference with checkpoints, please run:
 ```
 python inference.py --checkpoint_folder RD++  \
                     --classes carpet leather
