@@ -91,7 +91,7 @@ class Revisit_RDLoss(nn.Module):
         """
         current_batchsize = projected_normal_feature[0].shape[0]
 
-        target = torch.ones(current_batchsize).to('cuda')
+        target = -torch.ones(current_batchsize).to('cuda')
 
         normal_proj1 = projected_normal_feature[0]
         normal_proj2 = projected_normal_feature[1]
