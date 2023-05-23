@@ -1,7 +1,7 @@
 
 ## Revisiting Reverse Distillation for Anomaly Detection (CVPR 2023)
 
-Code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
+Official code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
 
 [![Paper](https://img.shields.io/badge/Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2023/papers/Tien_Revisiting_Reverse_Distillation_for_Anomaly_Detection_CVPR_2023_paper.pdf)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tientrandinh/Revisiting-Reverse-Distillation/blob/main/main.ipynb)
@@ -26,6 +26,8 @@ Code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
 
 ## Table of Contents
 
+- [Revisiting Reverse Distillation for Anomaly Detection (CVPR 2023)](#revisiting-reverse-distillation-for-anomaly-detection-cvpr-2023)
+- [Table of Contents](#table-of-contents)
 - [Libraries](#libraries)
 - [Data Preparations](#data-preparations)
 - [Train](#train)
@@ -39,19 +41,24 @@ Code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
 - geomloss
 - numba
 ```
+
+or (preferably whithin a fresh env to avoid conflicts):
+```bash
+pip install -r requirements.txt
+```
 ## Data Preparations
 Download MVTEC dataset from [[Link]](https://www.mvtec.com/company/research/datasets/mvtec-ad)
 
 ## Train
 To train and test the RD++ method on 15 classes of MVTEC, for example, with two classes: carpet and leather, please run:
-```
+```bash
 python main.py --save_folder RD++  \
                --classes carpet leather
 
 ```
 ## Evaluation
 If you only need to perform inference with checkpoints, please run:
-```
+```bash
 python inference.py --checkpoint_folder RD++  \
                     --classes carpet leather
 ```

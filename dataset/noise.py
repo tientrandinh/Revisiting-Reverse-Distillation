@@ -4,9 +4,7 @@
 from ctypes import c_int64
 from math import floor
 
-import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib import animation
 from numba import njit, prange
 
 
