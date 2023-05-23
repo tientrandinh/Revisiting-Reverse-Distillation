@@ -1,23 +1,14 @@
 import torch
-import torch.nn as nn
 import numpy as np
 import random
 import os
-import geomloss
-from torch.utils.data import DataLoader
-import torch.backends.cudnn as cudnn
-from torch.nn import functional as F
-from tqdm import tqdm
 import pandas as pd
-import matplotlib.pyplot as plt
-import json
-from fastprogress import progress_bar
 from argparse import ArgumentParser
-from model.resnet import resnet18, resnet34, resnet50, wide_resnet50_2
-from model.de_resnet import de_resnet18, de_resnet34, de_wide_resnet50_2, de_resnet50
+from model.resnet import wide_resnet50_2
+from model.de_resnet import de_wide_resnet50_2
 from utils.utils_test import evaluation_multi_proj
-from utils.utils_train import *
-from dataset.dataset import *
+from utils.utils_train import MultiProjectionLayer
+from dataset.dataset import MVTecDataset_test, get_data_transforms
 
 
 def setup_seed(seed):

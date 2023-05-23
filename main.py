@@ -16,8 +16,8 @@ from argparse import ArgumentParser
 from model.resnet import resnet18, resnet34, resnet50, wide_resnet50_2
 from model.de_resnet import de_resnet18, de_resnet34, de_wide_resnet50_2, de_resnet50
 from utils.utils_test import evaluation_multi_proj
-from utils.utils_train import *
-from dataset.dataset import *
+from utils.utils_train import MultiProjectionLayer, Revisit_RDLoss, loss_fucntion
+from dataset.dataset import MVTecDataset_test, MVTecDataset_train, get_data_transforms
 
 def setup_seed(seed):
     torch.manual_seed(seed)

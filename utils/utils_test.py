@@ -1,29 +1,14 @@
 import torch
-import torch.nn as nn
 from torch.nn import functional as F
 import cv2
 import numpy as np
 from numpy import ndarray
 import pandas as pd
-from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score, auc
-import matplotlib
-import matplotlib.pyplot as plt
 from skimage import measure
 from statistics import mean
 from scipy.ndimage import gaussian_filter
-from sklearn import manifold
-from matplotlib.ticker import NullFormatter
-from scipy.spatial.distance import pdist
-import pickle
-from tqdm import tqdm
-import imageio
 import warnings
-from fastprogress import progress_bar
-import os
-from model.resnet import resnet18, resnet34, resnet50, wide_resnet50_2
-from model.de_resnet import de_resnet18, de_resnet50, de_wide_resnet50_2
-from dataset.dataset import *
 
 
 
