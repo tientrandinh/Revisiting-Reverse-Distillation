@@ -82,7 +82,7 @@ class Revisit_RDLoss(nn.Module):
                                 truncate=10, cost=None, kernel=None, cluster_scale=None, \
                                   debias=True, potentials=False, verbose=False, backend='auto')
         self.reconstruct = CosineReconstruct()       
-        self.contrast = torch.nn.CosineEmbeddingLoss(margin = -0.5)
+        self.contrast = torch.nn.CosineEmbeddingLoss(margin = 0.5)
     def forward(self, noised_feature, projected_noised_feature, projected_normal_feature):
         """
         noised_feature : output of encoder at each_blocks : [noised_feature_block1, noised_feature_block2, noised_feature_block3]
