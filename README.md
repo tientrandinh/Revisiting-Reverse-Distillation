@@ -81,6 +81,8 @@ Please cite our paper if you find it's helpful in your work.
     pages     = {24511-24520}
 }
 ```
+## Contact
+If you have any questions, feel free to reach out to me at tientrandinh1995@gmail.com (Tran Dinh Tien) or open an issue in this repository.
 
 ## Acknowledgement
 
