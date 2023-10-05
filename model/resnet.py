@@ -261,9 +261,6 @@ def _resnet(
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls[arch],
                                               progress=progress)
-        #for k,v in list(state_dict.items()):
-        #    if 'layer4' in k or 'fc' in k:
-        #        state_dict.pop(k)
         model.load_state_dict(state_dict)
     return model
 
@@ -284,7 +281,6 @@ class AttnBasicBlock(nn.Module):
     ) -> None:
         super(AttnBasicBlock, self).__init__()
         self.attention = attention
-        #print("Attention:", self.attention)
         if norm_layer is None:
             norm_layer = nn.BatchNorm2d
         if groups != 1 or base_width != 64:
@@ -297,13 +293,10 @@ class AttnBasicBlock(nn.Module):
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = norm_layer(planes)
-        #self.cbam = GLEAM(planes, 16)
         self.downsample = downsample
         self.stride = stride
 
     def forward(self, x: Tensor) -> Tensor:
-        #if self.attention:
-        #    x = self.cbam(x)
         identity = x
 
         out = self.conv1(x)
@@ -352,15 +345,10 @@ class AttnBottleneck(nn.Module):
         self.conv3 = conv1x1(width, planes * self.expansion)
         self.bn3 = norm_layer(planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
-        #self.cbam = GLEAM([int(planes * self.expansion/4),
-        #                   int(planes * self.expansion//2),
-        #                   planes * self.expansion], 16)
         self.downsample = downsample
         self.stride = stride
 
     def forward(self, x: Tensor) -> Tensor:
-        #if self.attention:
-        #    x = self.cbam(x)
         identity = x
 
         out = self.conv1(x)
@@ -450,14 +438,7 @@ class BN_layer(nn.Module):
         l2 = self.relu(self.bn3(self.conv3(x[1])))
         feature = torch.cat([l1,l2,x[2]],1)
         output = self.bn_layer(feature)
-        # output = self.bn_layer(x)
-
-        #x = self.avgpool(feature_d)
-        #x = torch.flatten(x, 1)
-        #x = self.fc(x)
-
         return output.contiguous()
-#         return feature, output.contiguous()
 
     def forward(self, x: Tensor) -> Tensor:
         return self._forward_impl(x)
