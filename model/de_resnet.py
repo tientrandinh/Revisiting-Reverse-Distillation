@@ -184,20 +184,11 @@ class ResNet(nn.Module):
                              "or a 3-element tuple, got {}".format(replace_stride_with_dilation))
         self.groups = groups
         self.base_width = width_per_group
-        #self.conv1 = nn.Conv2d(3, self.inplanes, kernel_size=7, stride=2, padding=3,
-        #                       bias=False)
-        #self.bn1 = norm_layer(self.inplanes)
-        #self.relu = nn.ReLU(inplace=True)
-        #self.maxpool = nn.MaxPool2d(kernel_size=3, stride=2, padding=1)
         self.layer1 = self._make_layer(block, 256, layers[0], stride=2)
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2,
                                        dilate=replace_stride_with_dilation[0])
         self.layer3 = self._make_layer(block, 64, layers[2], stride=2,
                                        dilate=replace_stride_with_dilation[1])
-        #self.layer4 = self._make_layer(block, 512, layers[3], stride=2,
-        #                               dilate=replace_stride_with_dilation[2])
-        #self.avgpool = nn.AdaptiveAvgPool2d((1, 1))
-        #self.fc = nn.Linear(512 * block.expansion, num_classes)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -242,20 +233,10 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def _forward_impl(self, x: Tensor) -> Tensor:
-        # See note [TorchScript super()]
-        #x = self.conv1(x)
-        #x = self.bn1(x)
-        #x = self.relu(x)
-        #x = self.maxpool(x)
-
         feature_a = self.layer1(x)  # 512*8*8->256*16*16
         feature_b = self.layer2(feature_a)  # 256*16*16->128*32*32
         feature_c = self.layer3(feature_b)  # 128*32*32->64*64*64
         #feature_d = self.layer4(feature_c)  # 64*64*64->128*32*32
-
-        #x = self.avgpool(feature_d)
-        #x = torch.flatten(x, 1)
-        #x = self.fc(x)
 
         return [feature_c, feature_b, feature_a]
 
@@ -275,9 +256,7 @@ def _resnet(
     if pretrained:
         state_dict = load_state_dict_from_url(model_urls[arch],
                                               progress=progress)
-        #for k,v in list(state_dict.items()):
-        #    if 'layer4' in k or 'fc' in k:
-        #        state_dict.pop(k)
+
         model.load_state_dict(state_dict)
     return model
 
