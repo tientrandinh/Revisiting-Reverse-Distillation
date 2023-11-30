@@ -82,7 +82,7 @@ Please cite our paper if you find it's helpful in your work.
 }
 ```
 ## Contact
-If you have any questions, feel free to reach out to me at tientrandinh1995@gmail.com (Tran Dinh Tien) or open an issue in this repository.
+If you have any questions, feel free to reach out to me at trandinhtienftu95@gmail.com (Tran Dinh Tien) or open an issue in this repository.
 
 ## Acknowledgement
 
