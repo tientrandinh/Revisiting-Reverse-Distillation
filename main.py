@@ -145,13 +145,14 @@ def train(_class_, pars):
             outputs = decoder(bn(feature_space))#bn(inputs))
             L_distill = loss_fucntion(inputs, outputs)
             loss = L_distill + pars.weight_proj * L_proj
-            optimizer_proj.zero_grad()
-            optimizer_distill.zero_grad()
             loss.backward()
             if (i + 1) % accumulation_steps == 0:
                 optimizer_proj.step()
                 optimizer_distill.step()
-
+                # Clear gradients
+                optimizer_proj.zero_grad()
+                optimizer_distill.zero_grad()
+            
             total_loss_running += loss.detach().cpu().item()
             loss_proj_running += L_proj.detach().cpu().item()
             loss_distill_running += L_distill.detach().cpu().item()
