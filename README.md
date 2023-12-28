@@ -4,7 +4,10 @@
 Official code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly Detection.
 
 [![Paper](https://img.shields.io/badge/Paper-<COLOR>.svg)](https://openaccess.thecvf.com/content/CVPR2023/papers/Tien_Revisiting_Reverse_Distillation_for_Anomaly_Detection_CVPR_2023_paper.pdf)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tientrandinh/Revisiting-Reverse-Distillation/blob/main/main.ipynb)
+[![Video presentation](https://img.shields.io/badge/Video-presentation?logo=youtube&labelColor=hsl&color=red
+)](https://www.youtube.com/watch?v=cGRgy2Z0XQo&t=37s)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tientrandinh/RDPlus/blob/main/main.ipynb)
+
 
 <div align="center">
 
@@ -27,13 +30,13 @@ Official code of CVPR 2023 paper: Revisiting Reverse Distillation for Anomaly De
 ## Table of Contents
 
 - [Revisiting Reverse Distillation for Anomaly Detection (CVPR 2023)](#revisiting-reverse-distillation-for-anomaly-detection-cvpr-2023)
-- [Table of Contents](#table-of-contents)
 - [Libraries](#libraries)
 - [Data Preparations](#data-preparations)
 - [Train](#train)
 - [Evaluation](#evaluation)
 - [Quick Experiments](#quick-experiments)
 - [Citation](#citation)
+- [Contact](#contact)
 - [Acknowledgement](#acknowledgement)
 
 ## Libraries 
@@ -87,5 +90,7 @@ If you have any questions, feel free to reach out to me at trandinhtienftu95@gma
 ## Acknowledgement
 
 We use [RD](https://github.com/hq-deng/RD4AD) as the baseline. Also, we use the [Simplex Noise](https://github.com/Julian-Wyatt/AnoDDPM). We are thankful to their brilliant works!
+
+
 
 
